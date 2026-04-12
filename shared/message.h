@@ -15,7 +15,7 @@ inline std::string currentTimeStamp(){
 struct Message{
 	std::string type;
 	std::string sender;
-	std::string receiver;
+	std::string recipient;
 	std::string content;
 	std::string timestamp;
 
