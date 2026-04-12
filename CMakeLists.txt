@@ -4,7 +4,7 @@ project(SimpleChat)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
-find_package(Boost REQUIRED COMPONENETS system)
+find_package(Boost REQUIRED COMPONENTS system)
 
 add_executable(server
 	server/main.cpp
