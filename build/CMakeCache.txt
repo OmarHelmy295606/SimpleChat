@@ -374,9 +374,6 @@ XKB_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 XKB_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libxkbcommon.so
 
-//The directory containing a CMake configuration file for boost_COMPONENETS.
-boost_COMPONENETS_DIR:PATH=boost_COMPONENETS_DIR-NOTFOUND
-
 //The directory containing a CMake configuration file for boost_headers.
 boost_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.83.0
 

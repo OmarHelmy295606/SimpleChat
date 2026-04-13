@@ -3,7 +3,7 @@
 #include <ctime>
 #include <nlohmann/json.hpp>
 
-inline std::string currentTimeStamp(){
+inline std::string currentTimestamp(){
 	auto now = std::time(nullptr);
 	char buf[20];
 	std::strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
