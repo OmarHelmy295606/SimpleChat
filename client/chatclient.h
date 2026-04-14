@@ -24,7 +24,7 @@ signals:
 	void userListUpdated(const QStringList& users);
 	void disconnected();
 	void errorOccurred(const QString& error);
-
+	void connected();
 
 private:
 

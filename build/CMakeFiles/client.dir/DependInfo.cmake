@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "client_autogen/timestamp" "custom" "client_autogen/deps"
-  "/home/omarhelmy/SimpleChat/client/ChatClient.cpp" "CMakeFiles/client.dir/client/ChatClient.cpp.o" "gcc" "CMakeFiles/client.dir/client/ChatClient.cpp.o.d"
+  "/home/omarhelmy/SimpleChat/client/chatclient.cpp" "CMakeFiles/client.dir/client/chatclient.cpp.o" "gcc" "CMakeFiles/client.dir/client/chatclient.cpp.o.d"
   "/home/omarhelmy/SimpleChat/client/gui/AboutWindow.cpp" "CMakeFiles/client.dir/client/gui/AboutWindow.cpp.o" "gcc" "CMakeFiles/client.dir/client/gui/AboutWindow.cpp.o.d"
   "/home/omarhelmy/SimpleChat/client/gui/LoginWindow.cpp" "CMakeFiles/client.dir/client/gui/LoginWindow.cpp.o" "gcc" "CMakeFiles/client.dir/client/gui/LoginWindow.cpp.o.d"
   "/home/omarhelmy/SimpleChat/client/gui/MainWindow.cpp" "CMakeFiles/client.dir/client/gui/MainWindow.cpp.o" "gcc" "CMakeFiles/client.dir/client/gui/MainWindow.cpp.o.d"

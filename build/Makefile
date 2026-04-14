@@ -168,29 +168,29 @@ client_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_autogen.dir/build.make CMakeFiles/client_autogen.dir/build
 .PHONY : client_autogen/fast
 
-client/ChatClient.o: client/ChatClient.cpp.o
-.PHONY : client/ChatClient.o
+client/chatclient.o: client/chatclient.cpp.o
+.PHONY : client/chatclient.o
 
 # target to build an object file
-client/ChatClient.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/ChatClient.cpp.o
-.PHONY : client/ChatClient.cpp.o
+client/chatclient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/chatclient.cpp.o
+.PHONY : client/chatclient.cpp.o
 
-client/ChatClient.i: client/ChatClient.cpp.i
-.PHONY : client/ChatClient.i
+client/chatclient.i: client/chatclient.cpp.i
+.PHONY : client/chatclient.i
 
 # target to preprocess a source file
-client/ChatClient.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/ChatClient.cpp.i
-.PHONY : client/ChatClient.cpp.i
+client/chatclient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/chatclient.cpp.i
+.PHONY : client/chatclient.cpp.i
 
-client/ChatClient.s: client/ChatClient.cpp.s
-.PHONY : client/ChatClient.s
+client/chatclient.s: client/chatclient.cpp.s
+.PHONY : client/chatclient.s
 
 # target to generate assembly for a file
-client/ChatClient.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/ChatClient.cpp.s
-.PHONY : client/ChatClient.cpp.s
+client/chatclient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client/chatclient.cpp.s
+.PHONY : client/chatclient.cpp.s
 
 client/gui/AboutWindow.o: client/gui/AboutWindow.cpp.o
 .PHONY : client/gui/AboutWindow.o
@@ -372,9 +372,9 @@ help:
 	@echo "... client_autogen_timestamp_deps"
 	@echo "... client"
 	@echo "... server"
-	@echo "... client/ChatClient.o"
-	@echo "... client/ChatClient.i"
-	@echo "... client/ChatClient.s"
+	@echo "... client/chatclient.o"
+	@echo "... client/chatclient.i"
+	@echo "... client/chatclient.s"
 	@echo "... client/gui/AboutWindow.o"
 	@echo "... client/gui/AboutWindow.i"
 	@echo "... client/gui/AboutWindow.s"

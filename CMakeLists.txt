@@ -24,10 +24,13 @@ set(CMAKE_AUTORCC ON)
 
 add_executable(client
 	client/main.cpp
-	client/ChatClient.cpp
+	client/chatclient.cpp
 	client/gui/LoginWindow.cpp
 	client/gui/MainWindow.cpp
 	client/gui/AboutWindow.cpp
+	client/gui/LoginWindow.h
+	client/gui/AboutWindow.h
+	client/gui/MainWindow.h
 )
 
 target_include_directories(client PRIVATE shared)

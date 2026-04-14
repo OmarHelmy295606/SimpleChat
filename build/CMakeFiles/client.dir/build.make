@@ -104,19 +104,19 @@ CMakeFiles/client.dir/client/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/client/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omarhelmy/SimpleChat/client/main.cpp -o CMakeFiles/client.dir/client/main.cpp.s
 
-CMakeFiles/client.dir/client/ChatClient.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/client/ChatClient.cpp.o: /home/omarhelmy/SimpleChat/client/ChatClient.cpp
-CMakeFiles/client.dir/client/ChatClient.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/omarhelmy/SimpleChat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/client.dir/client/ChatClient.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/client/ChatClient.cpp.o -MF CMakeFiles/client.dir/client/ChatClient.cpp.o.d -o CMakeFiles/client.dir/client/ChatClient.cpp.o -c /home/omarhelmy/SimpleChat/client/ChatClient.cpp
+CMakeFiles/client.dir/client/chatclient.cpp.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/client/chatclient.cpp.o: /home/omarhelmy/SimpleChat/client/chatclient.cpp
+CMakeFiles/client.dir/client/chatclient.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/omarhelmy/SimpleChat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/client.dir/client/chatclient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/client/chatclient.cpp.o -MF CMakeFiles/client.dir/client/chatclient.cpp.o.d -o CMakeFiles/client.dir/client/chatclient.cpp.o -c /home/omarhelmy/SimpleChat/client/chatclient.cpp
 
-CMakeFiles/client.dir/client/ChatClient.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client.dir/client/ChatClient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/omarhelmy/SimpleChat/client/ChatClient.cpp > CMakeFiles/client.dir/client/ChatClient.cpp.i
+CMakeFiles/client.dir/client/chatclient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client.dir/client/chatclient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/omarhelmy/SimpleChat/client/chatclient.cpp > CMakeFiles/client.dir/client/chatclient.cpp.i
 
-CMakeFiles/client.dir/client/ChatClient.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/client/ChatClient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omarhelmy/SimpleChat/client/ChatClient.cpp -o CMakeFiles/client.dir/client/ChatClient.cpp.s
+CMakeFiles/client.dir/client/chatclient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/client/chatclient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/omarhelmy/SimpleChat/client/chatclient.cpp -o CMakeFiles/client.dir/client/chatclient.cpp.s
 
 CMakeFiles/client.dir/client/gui/LoginWindow.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/client/gui/LoginWindow.cpp.o: /home/omarhelmy/SimpleChat/client/gui/LoginWindow.cpp
@@ -164,7 +164,7 @@ CMakeFiles/client.dir/client/gui/AboutWindow.cpp.s: cmake_force
 client_OBJECTS = \
 "CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/client.dir/client/main.cpp.o" \
-"CMakeFiles/client.dir/client/ChatClient.cpp.o" \
+"CMakeFiles/client.dir/client/chatclient.cpp.o" \
 "CMakeFiles/client.dir/client/gui/LoginWindow.cpp.o" \
 "CMakeFiles/client.dir/client/gui/MainWindow.cpp.o" \
 "CMakeFiles/client.dir/client/gui/AboutWindow.cpp.o"
@@ -174,7 +174,7 @@ client_EXTERNAL_OBJECTS =
 
 client: CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o
 client: CMakeFiles/client.dir/client/main.cpp.o
-client: CMakeFiles/client.dir/client/ChatClient.cpp.o
+client: CMakeFiles/client.dir/client/chatclient.cpp.o
 client: CMakeFiles/client.dir/client/gui/LoginWindow.cpp.o
 client: CMakeFiles/client.dir/client/gui/MainWindow.cpp.o
 client: CMakeFiles/client.dir/client/gui/AboutWindow.cpp.o

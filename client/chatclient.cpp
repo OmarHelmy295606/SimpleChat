@@ -15,7 +15,7 @@ void ChatClient::connectToServer(const QString& host, int port, const QString& u
 		tcp::resolver resolver(io_);
 		auto endpoints = resolver.resolve(host.toStdString() , std::to_string(port));
 		boost::asio::connect(socket_, endpoints);
-
+		emit connected();
 		sendLogin();
 		readMessage();
 
