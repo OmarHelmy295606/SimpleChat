@@ -1,6 +1,0 @@
-/home/omarhelmy/SimpleChat/build/CMakeFiles/server.dir
-/home/omarhelmy/SimpleChat/build/CMakeFiles/client.dir
-/home/omarhelmy/SimpleChat/build/CMakeFiles/edit_cache.dir
-/home/omarhelmy/SimpleChat/build/CMakeFiles/rebuild_cache.dir
-/home/omarhelmy/SimpleChat/build/CMakeFiles/client_autogen_timestamp_deps.dir
-/home/omarhelmy/SimpleChat/build/CMakeFiles/client_autogen.dir

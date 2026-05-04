@@ -10,6 +10,7 @@ class LoginWindow : public QWidget{
 	Q_OBJECT
 public:
 explicit LoginWindow(QWidget* parent = nullptr);
+QString getUsername() const;
 
 signals:
 void connectRequested(const QString& host, int port, const QString& username);

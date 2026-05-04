@@ -11,7 +11,7 @@ add_executable(server
 	server/server.cpp
 )
 
-target_include_directories(server PRIVATE shared)
+target_include_directories(server PRIVATE   ${CMAKE_SOURCE_DIR}/shared)
 
 target_link_libraries(server
 	Boost::system
@@ -33,7 +33,7 @@ add_executable(client
 	client/gui/MainWindow.h
 )
 
-target_include_directories(client PRIVATE shared)
+target_include_directories(client PRIVATE   ${CMAKE_SOURCE_DIR}/shared)
 
 target_link_libraries(client
     Qt6::Widgets

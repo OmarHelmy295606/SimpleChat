@@ -52,7 +52,9 @@ LoginWindow::LoginWindow(QWidget* parent)
 	connect(connectButton_, &QPushButton::clicked, this, &LoginWindow::onConnectClicked);
 }
 
-
+QString LoginWindow::getUsername() const{
+	return usernameEdit_->text().trimmed();
+}
 
 void LoginWindow::onConnectClicked(){
 	QString username = usernameEdit_->text().trimmed();
