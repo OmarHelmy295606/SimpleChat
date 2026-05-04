@@ -102,6 +102,10 @@ void ChatClient::handleMessage(const std::string& raw){
 				users << QString::fromStdString(name.get<std::string>());
 			emit userListUpdated(users);
 		}
+		else if(type == "error"){
+			std::string message = j.value("message", "Unknown error");
+			emit errorOccurred(QString::fromStdString(message));
+		}
 		else{
 			std:: cout << "Unknown message type: " << type << std::endl;
 		}

@@ -33,12 +33,11 @@ class Server {
 public:
     Server(boost::asio::io_context& io, int port,
            const std::string& dbPath = "chat_history.db");
-
-    void registerUser(const std::string& username,
-                      std::shared_ptr<Session> session);
-    void removeUser(const std::string& username);
-    void sendToUser(const std::string& recipient, const std::string& message);
-    void broadcastUserList();
+	void registerUser(const std::string& username, std::shared_ptr<Session> session);
+	void removeUser(const std::string& username);
+	void sendToUser(const std::string& recipient, const std::string& message);
+	void broadcastUserList();
+	bool hasUser(const std::string& username) const;
 
     void persistMessage(const Message& msg);
 
