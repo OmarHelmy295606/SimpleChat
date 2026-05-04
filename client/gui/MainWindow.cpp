@@ -301,6 +301,11 @@ void MainWindow::onUserSelected(QListWidgetItem* item){
 void MainWindow::onSendMessage() {
     if(activeRecipient_.isEmpty()) return;
 
+    if(m_headerStatus->text() == "Offline"){
+    	QMessageBox::warning(this, "User Offline", "Cannot send message.");
+    	return;
+    }
+
     QString text = m_inputBox->text().trimmed();
     if (text.isEmpty()) return;
 
@@ -330,9 +335,18 @@ void MainWindow::onMessageReceived(const Message& message){
 
 void MainWindow::onUserListUpdated(const QStringList& users){
 	m_contactList->clear();
+	bool isOnline = false;
 	for (const QString& user : users) {
 		if(user == username_) continue;
 		m_contactList->addItem(user);
+		if(user == activeRecipient_)
+			isOnline = true;
+	}
+	if(!activeRecipient_.isEmpty())
+		m_headerStatus->setText(isOnline ? "Online" : "Offline");
+	if(!isOnline){
+		m_inputBox->setEnabled(false);
+		m_sendBtn->setEnabled(false);
 	}
 
 }

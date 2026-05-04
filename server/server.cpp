@@ -3,6 +3,10 @@
 #include <nlohmann/json.hpp>
 
 // Session class functions
+bool Server::hasUser(const std::string& username) const {
+	return users_.count(username) > 0;
+}
+
 Session::Session(tcp::socket socket, Server& server)
         :socket_(std::move(socket)), server_(server){}
 void Session::start(){
@@ -27,11 +31,24 @@ void Session::readMessages(){
                 );
 }
 
+
 void Session::handleMessages(const std::string& incomingMessage){
 try{
         Message msg = Message::deserialize(incomingMessage);
 
         if(msg.type == "login"){
+		if(!username_.empty())
+			return;
+
+		if(server_.hasUser(msg.sender)){
+			std::cout << "Duplicate username rejected: " << msg.sender << std::endl;
+			nlohmann::json j;
+			j["type"] = "error";
+			j["message"] = "Username already taken";
+			deliver(j.dump());
+			return;
+		}
+
                 username_ = msg.sender;
                 server_.registerUser(username_, shared_from_this());
                 server_.broadcastUserList();
@@ -100,13 +117,21 @@ void Server::acceptNext(){
 }
 
 void Server::registerUser(const std::string& username, std::shared_ptr<Session> session){
-        users_[username] = session;
+        if(users_.count(username)){
+        	std::cout << "Duplicate username rejected: " << username << std::endl;
+        	nlohmann::json j;
+		j["type"] = "error";
+		session->deliver(j.dump());
+		return;
+    	}
+	users_[username] = session;
         std::cout << "Registerd: " << username << std::endl;
 }
 
 void Server::removeUser(const std::string& username){
         if(users_.erase(username)){
                 std::cout << "Removed: "<< username << std::endl;
+		broadcastUserList();
         }
 }
 

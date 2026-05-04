@@ -42,6 +42,7 @@ public:
 	void removeUser(const std::string& username);
 	void sendToUser(const std::string& recipient, const std::string& message);
 	void broadcastUserList();
+	bool hasUser(const std::string& username) const;
 
 
 
