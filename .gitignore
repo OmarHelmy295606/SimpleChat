@@ -46,3 +46,4 @@ build/
 CMakeFiles/
 CMakeCache.txt
 Makefile
+chat_history.db
