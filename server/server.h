@@ -5,54 +5,47 @@
 #include <string>
 #include <vector>
 #include "message.h"
+#include "database.h"
 
 using boost::asio::ip::tcp;
 
-class Server; // to avoid circular dependency
+class Server;
 
-class Session : public std::enable_shared_from_this<Session>{
-
+class Session : public std::enable_shared_from_this<Session> {
 public:
-	Session(tcp::socket socket, Server& server);
-	void start();
-	void deliver(const std::string& message);
+    Session(tcp::socket socket, Server& server);
+    void start();
+    void deliver(const std::string& message);
 
 private:
+    tcp::socket              socket_;
+    Server&                  server_;
+    std::string              username_;
+    boost::asio::streambuf   buffer_;
+    std::vector<std::string> writingQueue_;
 
-
-	tcp::socket socket_;
-	Server& server_;
-	std::string username_;
-	boost::asio::streambuf buffer_;
-	std::vector<std::string> writingQueue_;
-
-	void readMessages();
-	void handleMessages(const std::string& incomingMessage);
-	void writeNext();
-
-
+    void readMessages();
+    void handleMessages(const std::string& incomingMessage);
+    void writeNext();
 };
 
 class Server {
-
 public:
+    Server(boost::asio::io_context& io, int port,
+           const std::string& dbPath = "chat_history.db");
 
-	Server(boost::asio::io_context& io, int port);
-	void registerUser(const std::string& username, std::shared_ptr<Session> session);
-	void removeUser(const std::string& username);
-	void sendToUser(const std::string& recipient, const std::string& message);
-	void broadcastUserList();
+    void registerUser(const std::string& username,
+                      std::shared_ptr<Session> session);
+    void removeUser(const std::string& username);
+    void sendToUser(const std::string& recipient, const std::string& message);
+    void broadcastUserList();
 
-
+    void persistMessage(const Message& msg);
 
 private:
+    tcp::acceptor                                    acceptor_;
+    std::map<std::string, std::shared_ptr<Session>>  users_;
+    DatabaseManager                                  db_;
 
-	tcp::acceptor acceptor_;
-	std::map<std::string , std::shared_ptr<Session>> users_;
-
-	void acceptNext();
-
-
-
-
+    void acceptNext();
 };

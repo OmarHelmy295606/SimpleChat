@@ -3,9 +3,9 @@ project(SimpleChat)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
-find_package(Boost REQUIRED COMPONENTS system)
-
+find_package(Qt6    REQUIRED COMPONENTS Widgets)
+find_package(Boost  REQUIRED COMPONENTS system)
+find_package(SQLite3 REQUIRED)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -15,24 +15,27 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-
 add_executable(server
     server/main.cpp
     server/server.cpp
+    server/database.cpp
 )
 target_include_directories(server PRIVATE ${CMAKE_SOURCE_DIR}/shared)
-target_link_libraries(server Boost::system pthread)
+target_link_libraries(server Boost::system SQLite::SQLite3 pthread)
 
-
-add_library(server_lib STATIC server/server.cpp)
-target_include_directories(server_lib PUBLIC ${CMAKE_SOURCE_DIR}/shared)
-target_link_libraries(server_lib Boost::system pthread)
-
+add_library(server_lib STATIC
+    server/server.cpp
+    server/database.cpp
+)
+target_include_directories(server_lib PUBLIC
+    ${CMAKE_SOURCE_DIR}/shared
+    ${CMAKE_SOURCE_DIR}/server
+)
+target_link_libraries(server_lib Boost::system SQLite::SQLite3 pthread)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
-
 
 add_executable(client
     client/main.cpp
@@ -47,7 +50,6 @@ add_executable(client
 target_include_directories(client PRIVATE ${CMAKE_SOURCE_DIR}/shared)
 target_link_libraries(client Qt6::Widgets Boost::system pthread)
 
-
 add_library(client_lib STATIC client/chatclient.cpp)
 target_include_directories(client_lib PUBLIC
     ${CMAKE_SOURCE_DIR}/shared
@@ -55,21 +57,20 @@ target_include_directories(client_lib PUBLIC
 )
 target_link_libraries(client_lib Qt6::Widgets Boost::system pthread)
 
-
 enable_testing()
 
 add_executable(simplechat_tests
     tests/test_message.cpp
     tests/test_server.cpp
     tests/test_client.cpp
+    tests/test_database.cpp
+    server/database.cpp
 )
-
 target_include_directories(simplechat_tests PRIVATE
     ${CMAKE_SOURCE_DIR}/shared
     ${CMAKE_SOURCE_DIR}/server
     ${CMAKE_SOURCE_DIR}/client
 )
-
 target_link_libraries(simplechat_tests
     server_lib
     client_lib
@@ -77,6 +78,7 @@ target_link_libraries(simplechat_tests
     GTest::gmock_main
     Qt6::Widgets
     Boost::system
+    SQLite::SQLite3
     pthread
 )
 
